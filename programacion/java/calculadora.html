@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <title>Calculadora</title>
+    <script>
+        function escribir(num) {
+            if (num == 'b') {
+                document.getElementById("resultado").value = "0";
+            } else if (num == 'a') {
+                document.getElementById("operaciones").value = "0";
+                document.getElementById("resultado").value = "0";
+            } else if (document.getElementById("resultado").value == "0") {
+                document.getElementById("resultado").value = "";
+                document.getElementById("resultado").value += num;
+            } else {
+                document.getElementById("resultado").value += num;
+            }
+        }
+
+        function operar(oper) {
+            ope = Number(document.getElementById("operaciones").value);
+            resu = Number(document.getElementById("resultado").value);
+            switch (oper) {
+                case '+':
+                    ope = ope + resu;
+                    break;
+                case '-':
+                    ope = ope - resu;
+                    break;
+                case '*':
+                    ope = ope * resu;
+                    break;
+                case '/':
+                    ope = ope / resu;
+                    break;
+            }
+            /*
+            if (oper == '+') {
+                ope = ope + resu;
+            } else if (oper == '-') {
+                ope = ope - resu;
+            } else if (oper == '*') {
+                ope = ope * resu;
+            } else if (oper == '/') {
+                ope = ope / resu;
+            }
+            */
+
+            opeS = String(ope);
+            document.getElementById("operaciones").value = opeS;
+            document.getElementById("resultado").value = "0";
+        }
+    </script>
+
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div id="calcu">
+        <input type=text id=operaciones value=0><br>
+        <input type=text id=resultado value=0><br>
+
+        <input type=button value=1 id=uno onclick="escribir('1');">
+        <input type=button value=2 id=dos onclick="escribir('2')">
+        <input type=button value=3 id=tres onclick="escribir('3')">
+        <input type=button value=+ id=mas onclick="operar('+')"><br>
+
+        <input type=button value=4 id=cuatro onclick="escribir('4')">
+        <input type=button value=5 id=cinco onclick="escribir('5')">
+        <input type=button value=6 id=seis onclick="escribir('6')">
+        <input type=button value=- id=menos onclick="operar('-')"><br>
+
+        <input type=button value=7 id=siete onclick="escribir('7')">
+        <input type=button value=8 id=ocho onclick="escribir('8')">
+        <input type=button value=9 id=nueve onclick="escribir('9')">
+        <input type=button value=* id=por onclick="operar('*')"><br>
+
+        <input type=button value="0" id=cero onclick="escribir('0')">
+        <input type=button value="/" id=division onclick="operar('/')">
+        <input type=button value="=" id=igual onclick="operar('=')">
+        <input type=button value="<--" id=borrar onclick="escribir('b')">
+        <input type=button value="AC" id=borrarArriba onclick="escribir('a')">
+    </div>
+</body>
+
+
+</html>

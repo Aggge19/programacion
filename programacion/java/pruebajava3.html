@@ -1,0 +1,39 @@
+<html>
+
+
+<title>Prueba Java 2</title>
+
+<head>
+    <script>
+        function Ver_Hora() {
+            var mihora = new Date();
+            var horas = mihora.getHours().toString();
+            var minutos = mihora.getMinutes().toString();
+            if (minutos.lenght == 1) {
+                minutos = "0" + minutos;
+            }
+            var segundos = mihora.getSeconds().toString();
+            if (segundos.lenght == 1) {
+                segundos = "0" + segundos;
+            }
+
+            document.forms[0].mireloj.value = horas + " : " + minutos + " : " + segundos;
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <p align="center">
+            <input type="text" size="10" name="mireloj">
+        </p>
+    </form>
+    <script>
+        var r = setInterval("Ver_Hora()", 500);
+    </script>
+
+
+</body>
+
+
+</html>
